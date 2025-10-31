@@ -1,0 +1,23 @@
+.cardReason {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  background-color: var(--card-color);
+  max-width: 466px;
+  max-height: 146px;
+  box-shadow: 0 4px 4px black;
+  border-radius: 10px;
+  border: none;
+  padding: 2rem 0;
+}
+
+.cardReason__text {
+  width: 239px;
+  color: var(--black-color);
+}
+
+.cardReason__img {
+  width: 100px;
+  height: 100px;
+}
