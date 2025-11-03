@@ -1,0 +1,159 @@
+.getFile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5rem;
+}
+
+.getFile__headline {
+  width: 80%;
+  margin-top: 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.getFile__welcomeTitle {
+  font-size: 24px;
+  text-align: center;
+}
+
+.getFile__headline p {
+  text-align: center;
+}
+
+.getFile__form {
+  border-radius: 15px;
+  width: 700px;
+  height: 200px;
+  background-color: var(--card-color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.getFile__fileName {
+  color: black;
+}
+
+.getFile__actions {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.getFile__actionsGenerate {
+  width: 295px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.getFile__btn {
+  color: var(--black-color);
+  width: 295px;
+  height: 90px;
+  border-radius: 15px;
+  border: none;
+  font-family: var(--headline-font);
+}
+
+.getFile__btnAi {
+  font-size: 24px;
+  position: relative;
+  display: inline-block;
+  background: linear-gradient(90deg, #b57cff 0%, #9ecbff 100%);
+}
+
+.getFile__btnYourself {
+  background-color: var(--light-blue);
+}
+
+.getFile__quizzOptions {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+/* .getFile__input_container {
+  position: relative;
+}
+
+.getFile__input_container label {
+  position: absolute;
+  margin: 0 5px;
+  left: 0;
+  top: 0;
+  transform: translateY(-50%);
+  background-color: #fff;
+  padding: 0 2px;
+  color: #aaa;
+  transition: 0.2s;
+}
+
+.getFile__input_container input {
+  border: 1px solid #aaa;
+  border-radius: 5px;
+  background-color: transparent;
+  width: 167px;
+  height: 45px;
+  border-radius: 15px;
+  color: var(--black-color);
+  padding-left: 1rem;
+}
+
+.getFile__input_container input:focus {
+  outline: none;
+}
+
+.getFile__input_container input:focus + label,
+.getFile__input_container input:not(:placeholder-shown) + label {
+  top: 0;
+  font-size: 16px;
+  z-index: 1;
+}
+
+.getFile__input_container input:focus + label {
+  color: var(--blue-color);
+}
+.getFile__input_container input:focus {
+  border-color: var(--blue-color);
+} */
+
+
+.getFile__numberQuiz {
+  color: var(--black-color);
+  font-size: 12px;
+  width: 130px;
+  height: 45px;
+  background: none;
+  border: 1px solid var(--blue-color);
+  border-radius: 8px;
+}
+
+
+.getFile__typeQuiz {
+  width: 115px;
+  background-color: var(--blue-color);
+  border-radius: 8px;
+  border: none;
+}
+
+.getFile__uploadFile {
+  pointer-events: none;
+  text-align: center;
+  font-size: 24px;
+  font-weight: 500;
+}
+
+.getFile__inp {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0; /* полностью прозрачный */
+  cursor: pointer;
+}
