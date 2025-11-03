@@ -1,0 +1,29 @@
+.features {
+  background: linear-gradient(to bottom, var(--light-blue) 70%, var(--light-pur) 100%);
+}
+
+.features__title {
+  text-align: center;
+  font-family: var(--headline-font);
+  font-size: 48px;
+  font-weight: 400;
+}
+
+.features__reasons {
+  width: 100%;
+  padding: 7rem 0;
+}
+
+.row_left {
+  width: 100%;
+  display: flex;
+  justify-content: start;
+  margin: 5rem 0;
+}
+
+.row_right {
+  width: 100%;
+  display: flex;
+  justify-content: end;
+  margin: 5rem 0;
+}

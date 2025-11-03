@@ -5,16 +5,16 @@ header {
 
 .header__inner {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  height: 100%;
-}
-
-.header__top {
-  display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 100px;
+  height: 100%;
+  width: 100%;
+  padding-top: 1rem;
+}
+
+.header__logo {
+  width: 65px;
+  height: 82px;
 }
 
 .hero {

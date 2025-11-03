@@ -1,5 +1,6 @@
 .hero {
   width: 100%;
+  padding: 2rem 0;
 }
 
 .hero__inner {
@@ -15,11 +16,16 @@
   width: 896px;
   text-align: center;
   font-size: 24px;
+  font-family: var(--headline-font);
 }
 
 .hero__btn {
   max-width: 120px;
   max-height: 45px;
   background-color: var(--accent-color);
+}
+.hero__btn:hover{
+  background-color: #8d55ee;
+  transition: 0.4s;
 }
 

@@ -13,11 +13,31 @@
 }
 
 .cardReason__text {
-  width: 239px;
+  width: 60%;
+  text-align: start;
   color: var(--black-color);
 }
 
 .cardReason__img {
   width: 100px;
   height: 100px;
+}
+
+
+.rowCard {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: none;
+  border: 1px solid white;
+  border-radius: 15px;
+  width: 615px;
+  height: 90px;
+  padding: 0 1rem;
+  margin: 2rem 0;
+}
+
+.rowCard__text {
+  font-size: 36px;
+  font-family: var(--headline-font);
 }
