@@ -1,5 +1,8 @@
 import { useEffect, useState } from 'react';
 import styles from './styles.module.css';
+import { getQuizzes } from '../../api/quiz';
+import CardQuizz from '../CardQuizz/CardQuizz';
+import Loading from '../Loading/Loading';
 
 const GetFile = () => {
   const [file, setFile] = useState(null);
@@ -9,6 +12,9 @@ const GetFile = () => {
   const [fileName, setFileName] = useState('');
   const [numQuestions, setNumQuestions] = useState(5);
   const [quizType, setQuizType] = useState('multiple-choice');
+  const [quizzes, setQuizzes] = useState([]);
+  const [results, setResults] = useState({});
+  const [message, setMessage] = useState('');
 
   useEffect(() => {
     if (!file) {
@@ -46,18 +52,13 @@ const GetFile = () => {
 
     setLoading(true);
     try {
-      const response = await fetch(
-        'http://localhost:5000/api/quizzes/generate/test',
-        {
-          method: 'POST',
-          body: formData,
-        },
-      );
+      const quizzes = await getQuizzes(formData);
 
-      const data = await response.json();
-      console.log('AI quiz: ', data);
+      setQuizzes(quizzes.questions);
+      console.log(quizzes);
+      setAlertMessage('Quiz generated successfully!');
     } catch (err) {
-      console.log(err);
+      console.error('Error generating quiz:', err);
     } finally {
       setLoading(false);
     }
@@ -90,16 +91,6 @@ const GetFile = () => {
                 {loading ? 'Generating...' : 'Generate!'}
               </button>
               <div className={styles.getFile__quizzOptions}>
-                {/* <div className={styles.getFile__input_container}>
-                  <input
-                    type="number"
-                    max={10}
-                    name="name"
-                    placeholder=" "
-                  />
-                  <label htmlFor="name">number of quizzes</label>
-                </div> */}
-
                 <select
                   className={styles.getFile__numberQuiz}
                   name="select number"
@@ -152,7 +143,46 @@ const GetFile = () => {
             </button>
           )}
         </div>
+
+        <p style={{ color: 'green' }}>{alertMessage}</p>
       </form>
+
+      <div className={styles.quizzes}>
+        {loading && <Loading />}
+        {quizzes.map((quizz, index) => (
+          <CardQuizz
+            questionText={quizz.questionText}
+            options={quizz.options}
+            correctAnswer={quizz.correctAnswer}
+            onAnswer={isCorrect => {
+              setResults(prev => ({
+                ...prev,
+                [index]: isCorrect,
+              }));
+            }}
+          />
+        ))}
+
+        {quizzes.length > 0 && (
+          <button
+            className={styles.getFile__resultsBtn}
+            onClick={() => {
+              const totalCorrect =
+                Object.values(results).filter(Boolean).length;
+              setMessage(
+                `Test results: ${totalCorrect}/${quizzes.length}`,
+              );
+            }}
+          >
+            Show results
+          </button>
+        )}
+      </div>
+      {message && (
+        <div className={styles.getFile__containerResults}>
+          <p className={styles.getFile__results}>{message}</p>
+        </div>
+      )}
     </div>
   );
 };

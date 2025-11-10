@@ -20,9 +20,13 @@
 }
 
 .hero__btn {
-  max-width: 120px;
   max-height: 45px;
   background-color: var(--accent-color);
+  padding: 1rem 2rem;
+  font-size: 16px;
+  border-radius: 15px;
+  border: none;
+  cursor: pointer;
 }
 .hero__btn:hover{
   background-color: #8d55ee;

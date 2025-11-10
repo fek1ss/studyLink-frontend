@@ -1,8 +1,11 @@
 import styles from './styles.module.css';
 import CardReason from './../CardReason/CardReason';
 import { motion } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 
 const Reasons = () => {
+  let navigate = useNavigate();
+
   return (
     <div className={styles.reasons}>
       <motion.div
@@ -54,7 +57,7 @@ const Reasons = () => {
         />
       </motion.div>
 
-      <button className={styles.reasons__btn}>
+      <button className={styles.reasons__btn} onClick={()=> navigate('/generate')}>
         Get Start
       </button>
     </div>

@@ -1,0 +1,166 @@
+.cardQuizz {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  border-radius: 15px;
+  border: none;
+  background: linear-gradient(#7a9ff1 25%, #7c3aed 75%);
+  width: 700px;
+  height: auto;
+  padding: 2rem 0;
+}
+
+.cardQuizz__header {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 80%;
+  margin: 2rem auto;
+}
+
+.cardQuizz__actions {
+  display: flex;
+  justify-content: end;
+  gap: 1rem;
+}
+
+.cardQuizz__btnEdit {
+  color: var(--card-color);
+  background: none;
+  border: 1px solid var(--card-color);
+  border-radius: 10px;
+  padding: 5px 15px;
+}
+
+.cardQuizz__btnDelete {
+  color: var(--card-color);
+  background-color: #f53b3b;
+  border: none;
+  border-radius: 10px;
+  padding: 5px 15px;
+}
+
+.cardQuizz__title {
+  text-align: center;
+  font-size: 23px;
+  color: var(--black-color);
+}
+
+.cardQuizz__typeContainer {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.cardQuizz__type {
+  align-self: flex-start;
+  background-color: var(--gray-color);
+  color: var(--black-color);
+  border-radius: 15px;
+  width: 150px;
+  height: 30px;
+  text-align: center;
+  background-color: var(--grey-color);
+}
+
+.cardQuizz__options {
+  margin: 1rem auto;
+  width: 80%;
+}
+
+.cardQuizz__options ul {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+.cardQuizz__options li {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  border-radius: 15px;
+  color: var(--black-color);
+  font-size: 18px;
+  background-color: var(--card-color);
+}
+
+.cardQuizz__checkbox {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 28px;
+  height: 28px;
+  border: 2px solid #aaa; /* тонкая серая рамка */
+  border-radius: 50%; /* круг */
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  background: white;
+  transition: all 0.2s ease;
+}
+
+/* Анимация при наведении (необязательно) */
+.cardQuizz__checkbox:hover {
+  border-color: #777;
+}
+
+/* Состояние: checked */
+.cardQuizz__checkbox:checked {
+  border-color: #30d158; /* зелёная рамка */
+  background-color: #30d158; /* заполнение зеленым */
+}
+
+/* Галочка */
+.cardQuizz__checkbox:checked::after {
+  content: '';
+  position: absolute;
+  top: 4px;
+  left: 9px;
+  width: 6px;
+  height: 12px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  transform: rotate(45deg);
+}
+
+.optionItem {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.2rem 1.5rem;
+  border-radius: 15px;
+  font-size: 1.2rem;
+  background: white;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.optionItem:hover {
+  background: #f9f9f9;
+}
+
+/* Правильный ответ */
+.correct {
+  background: #d8ffdc;
+  border: 2px solid #30d158;
+}
+
+/* Неправильный ответ */
+.wrong {
+  background: #ffe4e4;
+  border: 2px solid #f53b3b;
+}
+
+/* Иконки */
+.iconCorrect {
+  color: #30d158;
+  font-size: 1.6rem;
+  font-weight: bold;
+}
+
+.iconWrong {
+  color: #f53b3b;
+  font-size: 1.6rem;
+  font-weight: bold;
+}
+

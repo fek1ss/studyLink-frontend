@@ -26,7 +26,8 @@
 .getFile__form {
   border-radius: 15px;
   width: 700px;
-  height: 200px;
+  height: auto;
+  padding: 2rem 0;
   background-color: var(--card-color);
   display: flex;
   flex-direction: column;
@@ -58,6 +59,7 @@
   border-radius: 15px;
   border: none;
   font-family: var(--headline-font);
+  cursor: pointer;
 }
 
 .getFile__btnAi {
@@ -77,52 +79,6 @@
   width: 100%;
 }
 
-/* .getFile__input_container {
-  position: relative;
-}
-
-.getFile__input_container label {
-  position: absolute;
-  margin: 0 5px;
-  left: 0;
-  top: 0;
-  transform: translateY(-50%);
-  background-color: #fff;
-  padding: 0 2px;
-  color: #aaa;
-  transition: 0.2s;
-}
-
-.getFile__input_container input {
-  border: 1px solid #aaa;
-  border-radius: 5px;
-  background-color: transparent;
-  width: 167px;
-  height: 45px;
-  border-radius: 15px;
-  color: var(--black-color);
-  padding-left: 1rem;
-}
-
-.getFile__input_container input:focus {
-  outline: none;
-}
-
-.getFile__input_container input:focus + label,
-.getFile__input_container input:not(:placeholder-shown) + label {
-  top: 0;
-  font-size: 16px;
-  z-index: 1;
-}
-
-.getFile__input_container input:focus + label {
-  color: var(--blue-color);
-}
-.getFile__input_container input:focus {
-  border-color: var(--blue-color);
-} */
-
-
 .getFile__numberQuiz {
   color: var(--black-color);
   font-size: 12px;
@@ -132,7 +88,6 @@
   border: 1px solid var(--blue-color);
   border-radius: 8px;
 }
-
 
 .getFile__typeQuiz {
   width: 115px;
@@ -156,4 +111,36 @@
   height: 100%;
   opacity: 0; /* полностью прозрачный */
   cursor: pointer;
+}
+
+.quizzes {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.getFile__resultsBtn {
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 15px;
+  background-color: var(--blue-color);
+  width: 200px;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.getFile__containerResults {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 150px;
+  background-color: #22c55e;
+}
+
+.getFile__results {
+  color: white;
+  margin: auto;
+  font-size: 32px;
+  text-align: center;
 }

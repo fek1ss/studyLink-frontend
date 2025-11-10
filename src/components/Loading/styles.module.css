@@ -1,0 +1,53 @@
+.cardSkeleton {
+  background-color: var(--grey-color);
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  border-radius: 15px;
+  border: none;
+  width: 700px;
+  height: auto;
+  padding: 2rem 0;
+}
+
+
+.cardSkeleton__title {
+  padding: 1rem;
+  border-radius: 15px;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.cardSkeleton__title, 
+.cardSkeleton__options li {
+  background: linear-gradient(-90deg, #f0f0f0 0%, #f8f8f8 50%, #f0f0f0 100%);
+  background-size: 400% 400%;
+  animation: pulse 1.2s ease-in-out infinite;
+}
+
+.cardSkeleton__options ul {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+.cardSkeleton__options li {
+  width: 80%;
+  height: 40px;
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  border-radius: 15px;
+}
+
+
+
+
+@keyframes pulse {
+  0% {
+    background-position: 0% 0%;
+  }
+  100% {
+    background-position: -135% 0%;
+  }
+}

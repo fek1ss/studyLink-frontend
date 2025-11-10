@@ -1,7 +1,10 @@
 import styles from './styles.module.css';
 import { motion } from 'framer-motion';
+import { useNavigate } from "react-router";
 
 const Hero = () => {
+  let navigate = useNavigate();
+
   return (
     <div className={styles.hero}>
       <motion.div
@@ -18,7 +21,7 @@ const Hero = () => {
               learning becomes communication — create your profile,
               post posts, and test your knowledge with others.
             </p>
-            <button className={styles.hero__btn}>try now</button>
+            <button className={styles.hero__btn} onClick={()=> navigate('/generate')}>try now</button>
           </div>
         </div>
       </motion.div>
