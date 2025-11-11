@@ -69,9 +69,7 @@
   background: linear-gradient(90deg, #b57cff 0%, #9ecbff 100%);
 }
 
-.getFile__btnYourself {
-  background-color: var(--light-blue);
-}
+
 
 .getFile__quizzOptions {
   display: flex;
@@ -96,22 +94,7 @@
   border: none;
 }
 
-.getFile__uploadFile {
-  pointer-events: none;
-  text-align: center;
-  font-size: 24px;
-  font-weight: 500;
-}
 
-.getFile__inp {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  opacity: 0; /* полностью прозрачный */
-  cursor: pointer;
-}
 
 .quizzes {
   display: flex;

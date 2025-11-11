@@ -1,0 +1,43 @@
+.files {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.file__btn {
+  color: var(--black-color);
+  width: 295px;
+  height: 90px;
+  border-radius: 15px;
+  border: none;
+  font-family: var(--headline-font);
+  cursor: pointer;
+}
+
+.file__btnAi {
+  font-size: 24px;
+  position: relative;
+  display: inline-block;
+  background: linear-gradient(90deg, #b57cff 0%, #9ecbff 100%);
+}
+
+.file__btnYourself {
+  background-color: var(--light-blue);
+}
+
+.file__uploadFile {
+  pointer-events: none;
+  text-align: center;
+  font-size: 24px;
+  font-weight: 500;
+}
+
+.file__inp {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0; /* полностью прозрачный */
+  cursor: pointer;
+}
