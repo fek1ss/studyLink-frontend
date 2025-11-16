@@ -1,20 +1,16 @@
 import CardQuizz from "../CardQuizz/CardQuizz";
+import styles from './styles.module.css';
 
-const QuizList = ({ quizzes }) => {
+const QuizList = ({ quizzes, onAnswer }) => {
   return (
-    <div>
+    <div className={styles.quizList}>
       {quizzes.map((quizz, index) => ( 
         <CardQuizz
           key={index}
           questionText={quizz.questionText}
           options={quizz.options}
           correctAnswer={quizz.correctAnswer}
-          onAnswer={isCorrect => {
-            setQuizState(prev => ({
-              ...prev,
-              results: { ...prev.results, [index]: isCorrect },
-            }));
-          }}
+          onAnswer={isCorrect => onAnswer(index, isCorrect)}
         />
       ))}
     </div>

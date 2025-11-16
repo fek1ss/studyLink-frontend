@@ -9,7 +9,7 @@ const CardQuizz = ({ questionText, options, correctAnswer, onAnswer }) => {
   function handleSelect(option) {
     setSelected(option);
 
-    const isCorrect = option === correctAnswer;
+    const isCorrect = option === correctAnswer; // true / false
     onAnswer(isCorrect);
   }
 

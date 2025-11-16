@@ -8,7 +8,7 @@ const LandingPage = () => {
   return (
     <div>
       <div className="general-background-header-hero">
-        <Header />
+        <Header opacity={0} />
         <Hero />
       </div>
       <FeaturesSection />

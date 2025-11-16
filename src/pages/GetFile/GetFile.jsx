@@ -1,11 +1,14 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import styles from './styles.module.css';
 import { getQuizzes } from '../../api/quiz';
-import CardQuizz from '../CardQuizz/CardQuizz';
-import Loading from '../Loading/Loading';
-import FileUploader from '../FIleUploader/FileUploader';
+import Loading from '../../components/Loading/Loading';
+import FileUploader from '../../features/FIleUploader/FileUploader';
+import QuizList from '../../components/QuizList/QuizList';
+import { useNavigate } from 'react-router-dom';
+import Header from './../../components/Header/Header';
 
 const GetFile = () => {
+  const navigate = useNavigate();
   const [switchBtn, setSwitchBtn] = useState('');
   const [quizState, setQuizState] = useState({
     quizzes: [],
@@ -25,6 +28,11 @@ const GetFile = () => {
     fileName: '',
     alertMessage: '',
   });
+  const token = sessionStorage.getItem('token');
+
+  useEffect(() => {
+    if (!token) navigate('/login');
+  }, [token, navigate]);
 
   const handleGenerateQuiz = async e => {
     e.preventDefault();
@@ -37,19 +45,23 @@ const GetFile = () => {
       return;
     }
 
-    const formData = new FormData();
-    formData.append('file', fileData.file);
-    formData.append('numQuestions', quizOptions.numQuestions);
-    formData.append('type', quizOptions.quizType);
-
     setQuizState(prev => ({ ...prev, loading: true }));
     try {
-      const quizzes = await getQuizzes(formData);
+      const quizzes = await getQuizzes({
+        token,
+        file: fileData.file,
+        count: quizOptions.numQuestions,
+        type: quizOptions.quizType,
+      });
 
       setQuizState(prev => ({
         ...prev,
         quizzes: quizzes.questions,
       }));
+
+      if (quizzes) {
+        setFileData(prev => ({ ...prev, alertMessage: '' }));
+      }
       console.log(quizzes);
     } catch (err) {
       console.error('Error generating quiz:', err);
@@ -67,6 +79,7 @@ const GetFile = () => {
 
   return (
     <div className={styles.getFile}>
+      <Header opacity={1} />
       <div className={styles.getFile__headline}>
         <h1 className={styles.getFile__welcomeTitle}>
           Welcome to Study Link! <br />
@@ -107,7 +120,7 @@ const GetFile = () => {
                   quizState.loading || Boolean(fileData.alertMessage)
                 }
               >
-                {quizOptions.loading ? 'Generating...' : 'Generate!'}
+                {quizState.loading ? 'Generating...' : 'Generate!'}
               </button>
               <div className={styles.getFile__quizzOptions}>
                 <select
@@ -116,12 +129,14 @@ const GetFile = () => {
                   onChange={e =>
                     setQuizOptions(prev => ({
                       ...prev,
-                      numQuestions: e.target.value,
+                      numQuestions: parseInt(e.target.value),
                     }))
                   }
                   value={quizOptions.numQuestions}
                 >
-                  <option>number of quizzes</option>
+                  <option value="" disabled>
+                    number of quizzes
+                  </option>
                   <option value="5">5</option>
                   <option value="10">10</option>
                   <option value="15">15</option>
@@ -139,8 +154,8 @@ const GetFile = () => {
                   value={quizOptions.quizType}
                 >
                   <option>type of quiz</option>
-                  <option value="multiple-choose">
-                    multiple choose
+                  <option value="multiple-choice">
+                    multiple-choice
                   </option>
                   <option value="text">text</option>
                 </select>
@@ -154,20 +169,11 @@ const GetFile = () => {
 
       <div className={styles.quizzes}>
         {quizState.loading && <Loading />}
-        {quizState.quizzes.map((quizz, index) => (
-          <CardQuizz
-            key={index}
-            questionText={quizz.questionText}
-            options={quizz.options}
-            correctAnswer={quizz.correctAnswer}
-            onAnswer={isCorrect => {
-              setQuizState(prev => ({
-                ...prev,
-                results: { ...prev.results, [index]: isCorrect },
-              }));
-            }}
-          />
-        ))}
+
+        <QuizList
+          quizzes={quizState.quizzes}
+          onAnswer={handleAnswer}
+        />
 
         {quizState.quizzes.length > 0 && (
           <button

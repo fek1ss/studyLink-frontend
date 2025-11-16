@@ -36,6 +36,11 @@
   margin: 0;
 }
 
+html, body {
+  height: 100%;
+  background-color: #fff;
+}
+
 
 .success {
   color: green;
@@ -76,7 +81,7 @@ h1 {
 .wrapper {
   width: 85%;
   height: 100%;
-  margin: 0 auto;
+  margin: auto;
 }
 
 .general-background-header-hero {
